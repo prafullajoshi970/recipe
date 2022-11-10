@@ -7,7 +7,7 @@ const App= () => {
   const [isClicked,setIsClicked] =useState(false);
 
   useEffect(() => {
-    fetch(`https://api.edamam.com/api/recipes/v2?q=${query}&app_id=53215cc5&app_key=e36b39dd8b3bd1235cc44d6dd9021cee 	&type=public`).then(
+    fetch(`https://api.edamam.com/api/recipes/v2?q=${query}&app_id=ca9a1e0d&app_key=d2c30fc5bd6762dbac5b78b1925d68e1&type=public`).then(
       (Response) => Response.json()
     ).then(
       (data) => {
@@ -21,13 +21,14 @@ const App= () => {
 
   return (
     <div>
-      <input onChange={(e)=>{setQuery(e.target.value)}} type="text"></input>
-      <button onClick={()=>(setIsClicked(true))}>click</button>
+      <h1>Welcome</h1>
+      <input className="inputbox" onChange={(e)=>{setQuery(e.target.value)}} type="text"></input>
+      <button onClick={()=>(setIsClicked(true))}>Search Here!</button>
       {
       data.map((item, i) => {
         return <div key={i}>
-          <p>{item.recipe.lable}</p>
-          <img src={item.recipe.image} alt=""></img>
+        <span> <p>{item.recipe.label}</p>
+          <img src={item.recipe.image} alt=""></img></span> 
         </div>
       })
       }
